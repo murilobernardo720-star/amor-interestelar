@@ -1,71 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Escolha Interestelar 🌌</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolha</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: url('images/fundo3.jpg') no-repeat center center fixed;
+      background: url('fundo2.jpg') no-repeat center center fixed;
       background-size: cover;
-      font-family: sans-serif;
-      color: #fff;
+      color: white;
+      font-family: 'Verdana', sans-serif;
       text-align: center;
-      overflow: hidden;
+      padding: 20px;
     }
-
-    .container {
-      padding: 80px 20px;
-    }
-
-    h1 {
-      font-size: 2rem;
+    h2 {
+      font-size: 1.8em;
       margin-bottom: 30px;
     }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-    }
-
-    .btn {
+    button {
+      font-size: 1.2em;
       padding: 12px 24px;
-      font-size: 1rem;
-      background-color: #ff4081;
+      margin: 10px;
       border: none;
       border-radius: 8px;
-      color: white;
       cursor: pointer;
-      margin: 10px;
+      background-color: rgba(255,255,255,0.2);
+      color: white;
+    }
+    button:hover {
+      background-color: rgba(255,255,255,0.4);
+    }
+    #nao {
       position: relative;
     }
-
-    #noBtn {
-      position: absolute;
-      transition: top 0.3s ease, left 0.3s ease;
-    }
   </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Escolha Interestelar 🌌</h1>
-    <p>Se o tempo nos separa, você ainda escolheria viver algo comigo entre dimensões?</p>
-    <button class="btn" onclick="window.location.href='https://youtu.be/C86V_fy7HLw?si=FVGWzVcNIcLZGGv6'">SIM</button>
-    <button class="btn" id="noBtn" onclick="moverBotao()">NÃO</button>
-  </div>
-
   <script>
-    function moverBotao() {
-      const btn = document.getElementById('noBtn');
-      const maxX = window.innerWidth - btn.offsetWidth;
-      const maxY = window.innerHeight - btn.offsetHeight;
-      const randX = Math.floor(Math.random() * maxX);
-      const randY = Math.floor(Math.random() * maxY);
-      btn.style.left = randX + 'px';
-      btn.style.top = randY + 'px';
+    function fugir(btn) {
+      const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+      btn.style.position = 'absolute';
+      btn.style.left = x + 'px';
+      btn.style.top = y + 'px';
     }
   </script>
+</head>
+<body>
+  <h2>Você viveria isso comigo entre dimensões?</h2>
+  <button onclick="window.location.href='index.html'">SIM</button>
+  <button id="nao" onmouseover="fugir(this)">NÃO</button>
+  <br><br>
+  <a href="index.html">Voltar</a>
 </body>
 </html>
