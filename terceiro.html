@@ -13,31 +13,42 @@
       padding: 20px;
     }
     h2 {
-      font-size: 1.8em;
+      font-size: 2em;
       margin-bottom: 30px;
     }
     button {
-      font-size: 1.2em;
-      padding: 12px 24px;
-      margin: 10px;
+      font-size: 1.3em;
+      padding: 12px 28px;
+      margin: 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       background-color: rgba(255,255,255,0.2);
       color: white;
+      transition: background-color 0.3s;
+      position: relative;
     }
     button:hover {
       background-color: rgba(255,255,255,0.4);
     }
     #nao {
-      position: relative;
+      position: absolute;
+    }
+    a {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 10px 20px;
+      background-color: rgba(255,255,255,0.2);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1em;
     }
   </style>
   <script>
     function fugir(btn) {
       const x = Math.random() * (window.innerWidth - btn.offsetWidth);
       const y = Math.random() * (window.innerHeight - btn.offsetHeight);
-      btn.style.position = 'absolute';
       btn.style.left = x + 'px';
       btn.style.top = y + 'px';
     }
@@ -45,8 +56,13 @@
 </head>
 <body>
   <h2>Você viveria isso comigo entre dimensões?</h2>
-  <button onclick="window.location.href='index.html'">SIM</button>
+  <button onclick="window.location.href='https://youtu.be/C86V_fy7HLw?si=mpGHDgvYWrHqfkio'">SIM</button>
   <button id="nao" onmouseover="fugir(this)">NÃO</button>
+
+  <audio autoplay loop>
+    <source src="musica1.mp3" type="audio/mpeg">
+  </audio>
+
   <br><br>
   <a href="index.html">Voltar</a>
 </body>
