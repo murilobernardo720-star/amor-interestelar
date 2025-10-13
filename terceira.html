@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Escolha Interestelar 🌌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('images/fundo3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      padding: 80px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #ff4081;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin: 10px;
+      position: relative;
+    }
+
+    #noBtn {
+      position: absolute;
+      transition: top 0.3s ease, left 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Escolha Interestelar 🌌</h1>
+    <p>Se o tempo nos separa, você ainda escolheria viver algo comigo entre dimensões?</p>
+    <button class="btn" onclick="window.location.href='https://youtu.be/C86V_fy7HLw?si=FVGWzVcNIcLZGGv6'">SIM</button>
+    <button class="btn" id="noBtn" onclick="moverBotao()">NÃO</button>
+  </div>
+
+  <script>
+    function moverBotao() {
+      const btn = document.getElementById('noBtn');
+      const maxX = window.innerWidth - btn.offsetWidth;
+      const maxY = window.innerHeight - btn.offsetHeight;
+      const randX = Math.floor(Math.random() * maxX);
+      const randY = Math.floor(Math.random() * maxY);
+      btn.style.left = randX + 'px';
+      btn.style.top = randY + 'px';
+    }
+  </script>
+</body>
+</html>
