@@ -1,50 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Reflexão</title>
+  <title>Quiz – Guerra do Contestado</title>
   <style>
     body {
-      background: url('fundo1.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      font-family: 'Georgia', serif;
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
     }
-    h2 {
-      font-size: 1.5em;
-      margin: 20px;
+    .pergunta {
+      margin: 20px 0;
     }
-    p {
-      font-size: 1.2em;
-      margin: 20px;
-    }
-    img {
-      max-width: 80%;
-      margin-top: 20px;
-      border-radius: 10px;
-    }
-    a {
-      display: inline-block;
-      margin-top: 30px;
+    button {
+      margin: 5px;
       padding: 10px 20px;
-      background-color: rgba(255,255,255,0.2);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.1em;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .correto {
+      color: green;
+      font-weight: bold;
+    }
+    .errado {
+      color: red;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h2>“Aquilo que se faz por amor está sempre além do bem e do mal” — Nietzsche</h2>
-  <h2>“O amor é a única coisa que conseguimos perceber que transcende as dimensões do tempo e do espaço” — Interestelar</h2>
-  <p>Antes que diga que eu não fiz isso, eu te conheci no Litmatch, linda.</p>
-  <img src="foto.gif" alt="GIF romântico">
-  <audio autoplay loop>
-    <source src="musica1.mp3" type="audio/mpeg">
-  </audio>
-  <a href="index.html">Voltar</a>
+  <h2>Quiz: Guerra do Contestado</h2>
+  <div id="quiz"></div>
+
+  <script>
+    const perguntas = [
+      {
+        texto: "Em que anos ocorreu a Guerra do Contestado?",
+        opcoes: ["1894–1897", "1912–1916", "1930–1934"],
+        resposta: 1
+      },
+      {
+        texto: "Quais estados estavam envolvidos?",
+        opcoes: ["Bahia e Pernambuco", "Paraná e Santa Catarina", "São Paulo e Minas Gerais"],
+        resposta: 1
+      },
+      {
+        texto: "Causa principal da guerra?",
+        opcoes: ["Conflito religioso", "Revolta contra impostos", "Disputa por terras com empresas ferroviárias"],
+        resposta: 2
+      },
+      {
+        texto: "Quem eram os 'monarquistas'?",
+        opcoes: ["Tropas estrangeiras", "Camponeses liderados por líderes messiânicos", "Soldados do Império"],
+        resposta: 1
+      },
+      {
+        texto: "Resultado da guerra?",
+        opcoes: ["Vitória dos camponeses", "Repressão violenta pelo Exército Brasileiro", "Criação de um novo estado"],
+        resposta: 1
+      }
+    ];
+
+    let atual = 0;
+
+    function mostrarPergunta() {
+      const quiz = document.getElementById("quiz");
+      quiz.innerHTML = "";
+
+      const p = perguntas[atual];
+      const pergunta = document.createElement("div");
+      pergunta.className = "pergunta";
+      pergunta.innerHTML = `<h3>${p.texto}</h3>`;
+
+      p.opcoes.forEach((opcao, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = opcao;
+        btn.onclick = () => verificar(i);
+        pergunta.appendChild(btn);
+      });
+
+      quiz.appendChild(pergunta);
+    }
+
+    function verificar(i) {
+      const quiz = document.getElementById("quiz");
+      const correto = perguntas[atual].resposta === i;
+      const resultado = document.createElement("p");
+      resultado.className = correto ? "correto" : "errado";
+      resultado.textContent = correto ? "✅ Acertou!" : "❌ Errou!";
+      quiz.appendChild(resultado);
+
+      atual++;
+      if (atual < perguntas.length) {
+        setTimeout(mostrarPergunta, 1500);
+      } else {
+        setTimeout(() => {
+          quiz.innerHTML = "<h2>Quiz finalizado!</h2>";
+        }, 2000);
+      }
+    }
+
+    mostrarPergunta();
+  </script>
 </body>
 </html>
