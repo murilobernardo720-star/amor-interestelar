@@ -1,41 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Amor Interestelar</title>
+  <title>Projeto Educativo</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
-      background: url('fundo.jpg') no-repeat center center fixed;
+      background-image: url('Fundo.jpg');
       background-size: cover;
       color: white;
-      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      padding: 20px;
+      font-family: Arial, sans-serif;
     }
-    h1 {
-      font-size: 2em;
+    .imagens img {
+      width: 200px;
+      margin: 10px;
+      border-radius: 10px;
     }
-    a {
-      display: inline-block;
-      margin: 15px;
-      padding: 12px 24px;
-      background-color: rgba(255,255,255,0.2);
-      color: white;
-      text-decoration: none;
+    .botoes button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
       border-radius: 8px;
-      font-size: 1.2em;
+      background-color: #004080;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
-    a:hover {
-      background-color: rgba(255,255,255,0.4);
+    .botoes button:hover {
+      background-color: #0066cc;
     }
   </style>
 </head>
 <body>
-  <h1>O amor transcende o tempo e o espaço</h1>
-  <audio autoplay loop>
-    <source src="musica1.mp3" type="audio/mpeg">
-  </audio>
-  <a href="segundo.html">Reflexão</a>
-  <a href="terceiro.html">Escolha</a>
+  <h1>Projeto Educativo</h1>
+  <p>Integrantes: Ana, João, Carlos, Bernardo</p>
+  <p><strong>Site criado por Bernardo</strong></p>
+
+  <div class="imagens">
+    <img src="foto.gif" alt="Imagem 1">
+    <img src="Fundo1.jpg" alt="Imagem 2">
+    <img src="Fundo2.jpg" alt="Imagem 3">
+  </div>
+
+  <div class="botoes">
+    <button onclick="document.getElementById('musica').play()">🎵 Tocar Música Histórica</button>
+    <button onclick="location.href='Segundo.html'">🧠 Ir para o Quiz</button>
+    <button onclick="location.href='Terceiro.html'">📱 Aula via QR Code</button>
+  </div>
+
+  <audio id="musica" src="Musica1.mp3"></audio>
 </body>
 </html>
